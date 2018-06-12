@@ -1,0 +1,101 @@
+(
+    "AWSTemplateFormatVersion" : "2010-09-09",
+    "Description" : "This template will create Customized VPC with Private & Public Subnets in Each AvailabilityZone of the Region ",
+    "Metadata" : {
+        "AWS::CloudFormation::Interface" :  { 
+            "ParmeterGroups" : [
+				{
+					"Label" : {
+						"default" : "Default Network Configuration" 
+					},
+					"Parameters" : [
+						"VPCCIDR",
+						"PublicSubnet1CIDR",
+						"PublicSubnet2CIDR",
+						"PublicSubnet3CIDR",
+						"PublicSubnet4CIDR",
+						"PrivateSubnet1ACIDR",
+						"PrivateSubnet2ACIDR",
+						"PrivateSubnet3ACIDR",
+						"PrivateSubnet4ACIDR",
+						"VPCTenancy"
+					]	
+				},
+				{
+					"Label" :{
+						"default" : "S4 MDG EC2 Instance Configuration"		
+					},
+					"Parameters" : [
+						"KeyPairName",
+						"S4mdgInstanceType"
+					]
+				},
+				{
+					"Label" :{
+						"default" : "Solman EC2 Instance Configuration"
+					},
+					"Parameters" : [
+						"KeyPairName",
+						""SolmanInstanceType"
+					]
+				}
+            ],			
+            "ParameterLabels" : {            
+                "VPCCIDR" : {
+                    "default" : "VPC CIDR"
+                },
+                "VPCTenancy" : {
+                    "default" : "VPC Tenancy"
+                },
+                "PrivateSubnet1A" : {
+                    "default" : "PrivateSubnet1A CIDR"
+                },
+                "PrivateSubnet1B" : {
+                    "default" : "PrivateSubnet1B CIDR"
+                },
+                "PrivateSubnet1C" : {
+                    "default" : "PrivateSubnet1C CIDR"
+                },
+                "PrivateSubnet1D" : {
+                    "default" : "PrivateSubnet1D CIDR"
+                },
+                "PublicSubnet1" : {
+                    "default" : "PublicSubnet1 CIDR"
+                },
+                "PublicSubnet2" : {
+                    "default" : "PublicSubnet1 CIDR"
+                },
+                "PublicSubnet3" : {
+                    "default" : "PublicSubnet3 CIDR"
+                },
+                "PublicSubnet4" : {
+                    "default" : "PublicSubnet4 CIDR"
+                },
+                "S4mdgInstanceType" : {
+                    "default" : "S4 mdg Instance Type"
+                },
+                "SolmanInstanceType" : {
+                    "default" : "Solman Instance Type"
+                }
+            }
+        }	
+    },
+    "Parameters" : {
+    },
+    "Mappings" : {
+    },
+    "Conditions" : {
+    },
+    "Resources":{
+        "myS3bicket": {
+            "Type":"AWS::S3::Bucket"
+        }
+        "myEc2Instance": {
+            "Type":"AWS::EC2::Instance",
+            "Properties" {
+            }
+        }
+    },
+    "Outputs" : {
+    }
+}
